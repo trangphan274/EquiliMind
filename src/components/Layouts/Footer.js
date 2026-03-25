@@ -26,7 +26,7 @@ const Footer = () => {
       <Col md={4} className="footer-center text-center">
         
         <h2 className="footer-brand">EquiliMind</h2>
-        <p className="footer-sub">di Manuella</p>
+        
       </Col>
 
       <Col md={4} className="footer-right text-end">
@@ -47,7 +47,7 @@ const Footer = () => {
 
     <Row>
       <Col className="footer-copy text-center">
-        © 2023 La Pasta di Manuella. Site by Ambizy.
+        © 2024 EquiliMind. All rights reserved.
       </Col>
     </Row>
   </Container>

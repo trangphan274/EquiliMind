@@ -3,10 +3,10 @@ import { Container, Row, Col } from "react-bootstrap";
 import "../../styles/Section3Style.css";
 
 const services = [
-  { id: '01', title: 'PEACEFUL MIND', text: 'A Peaceful Mind Is At The Heart Of True Well-Being. In A World Filled With Constant Noise And Distraction, Cultivating Inner.', icon: '🧠' },
-  { id: '02', title: 'BODY POSTURE', text: 'Body Posture Is The Foundation Of A Safe, Effective, And Mindful Yoga Practice Proper Alignment Helps Prevent Injury.', icon: '🧘', active: true },
-  { id: '03', title: 'TRADITIONAL YOGA', text: 'Traditional Yoga Is A Timeless Path Rooted In Ancient Wisdom, Guiding The Body, Mind, And Spirit Toward Balance And Self.', icon: '🏃' },
-  { id: '04', title: 'HEALTHIER SKIN', text: 'Healthier Skin Begins Regular Yoga Practi Improved Circulatio', icon: '✨' },
+  { id: '01', title: 'STRESS TRACKING', text: 'Track your daily stress levels and spot patterns early to prevent burnout before it hits.', icon: '📊' },
+  { id: '02', title: 'MIND BREAKS', text: 'Get guided short breaks and exercises to relax your mind and reset your focus.', icon: '🧘', active: true },
+  { id: '03', title: 'MOOD INSIGHTS', text: 'Analyze your mood trends over time and understand triggers to manage them better.', icon: '🧠' },
+  { id: '04', title: 'WELLNESS TIPS', text: 'Receive personalised tips for better sleep, work-life balance, and mental health.', icon: '✨' },
 ];
 
 const Section3 = () => {

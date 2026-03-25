@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home/Home';
-import PredictForm from './components/PredictForm';
+import PredictPage from './pages/Predict/PredictPage';
+
 import LoadingScreen from './components/LoadingScreen';
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/predict" element={<PredictForm />} />
+          <Route path="/predict" element={<PredictPage />} />
          
         </Routes>
       </Router>
