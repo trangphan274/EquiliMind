@@ -1,0 +1,30 @@
+.history_section{
+  margin-top: 10rem ;
+  
+
+}
+
+.history_content{
+  max-width: 420px;
+}
+
+.history_content h1{
+  color: rgb(129, 97, 38);
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.history_content p{
+  color: #ddd;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+/* mobile */
+@media (max-width: 992px){
+  .history_content{
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+

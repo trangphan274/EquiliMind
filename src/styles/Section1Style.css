@@ -1,0 +1,101 @@
+.hero_section{
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ===== MARQUEE ===== */
+.hero_marquee{
+  position: absolute;
+  bottom: 40%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.marquee_track{
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee_track h1{
+  white-space: nowrap;
+  margin-right: 4rem;
+  font-size: 8rem;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@keyframes marquee{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+
+/* ===== PASTA POSITION ===== */
+.pasta_overlay{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* ===== RIGHT TEXT ===== */
+.hero_text{
+  position: absolute;
+  right: 6%;
+  top: 80%;
+  max-width: 420px;
+  z-index: 15;
+  transform: translateX(10%);
+}
+
+.hero_text h2{
+  color: var(--white);
+  text-align: center;
+}
+
+/* layout mobile */
+@media (max-width: 900px){
+  .hero_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pasta_overlay{
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0 auto;
+  }
+
+  .hero_text{
+    position: relative;
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+}
+
+/* ===== LEAVES POSITION ONLY ===== */
+.leaf{
+  position: absolute;
+  transform-origin: center;
+}
+
+
+.leaf1{ top: 15%; left: 28%; }
+.leaf2{ top: 22%; right: 25%; }
+.leaf3{ bottom: 25%; left: 25%; }
+.leaf4{ bottom: 28%; right: 25%; }

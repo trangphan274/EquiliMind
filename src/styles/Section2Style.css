@@ -1,0 +1,44 @@
+.slogan {
+  position: relative;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 12rem 0;   /* dùng padding */
+  margin-top: 6rem;   /* tách sec 1 */
+  height: auto;       /* QUAN TRỌNG */
+}
+
+
+
+.slogan-content {
+  position: relative;
+  z-index: 2; /* text nằm trên */
+  text-align: center;
+  color: white;
+  z-index: 2;
+  font-family: var(--playfair-font);  
+
+}
+
+.highlight{
+  color: rgb(129, 97, 38);
+}
+/* veggies layout */
+.veggies {
+  position: absolute;
+  inset: 0;          /* phủ full section */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.veggie {
+  position: absolute;
+}
+.chili { top: 18%; left: 20%; }
+.alecrim { top: 20%; right: 35%; }
+.espaguetti { bottom: 15%; left: 25%; }
+.tomato { bottom: 20%; right: 10%; }
+.green { top: 50%; left: 5%; }
+.purple_leaf { top: 25%; right: 5%; }
+.ervas { bottom: 10%; left: 50%; }

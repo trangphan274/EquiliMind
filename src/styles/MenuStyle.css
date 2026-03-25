@@ -1,0 +1,33 @@
+.menu_page {
+  padding: 80px 10vw;
+  color: #fff;
+}
+
+.menu_section {
+  margin-bottom: 80px;
+}
+
+.menu_section h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-family: 'Playfair Display', serif;
+}
+
+.menu_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.menu_card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.menu_card p {
+  margin-top: 12px;
+  text-align: center;
+  font-weight: 500;
+}
