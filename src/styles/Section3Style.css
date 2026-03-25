@@ -1,30 +1,83 @@
-.history_section{
-  margin-top: 10rem ;
-  
-
+.services_section {
+  background-color: #3d4a2a; /* Màu nền xanh rêu như hình */
+  padding: 80px 0;
+  color: #fff;
 }
 
-.history_content{
-  max-width: 420px;
+.services_title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 1px;
 }
 
-.history_content h1{
-  color: rgb(129, 97, 38);
-  font-size: 3rem;
-  font-family: 'Playfair Display', serif;
+/* Controls */
+.control_btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
+  transition: 0.3s;
 }
 
-.history_content p{
-  color: #ddd;
-  line-height: 1.7;
-  font-weight: 500;
+.control_btn:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* mobile */
-@media (max-width: 992px){
-  .history_content{
-    text-align: center;
-    margin: 0 auto;
+/* Service Card */
+.service_card {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 30px;
+  height: 100%;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.service_card.active {
+  background-color: #4e5d39; /* Màu sáng hơn một chút cho card đang chọn */
+  border-color: transparent;
+}
+
+.service_card:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.service_number {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.service_icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.service_name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.service_description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .services_header {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+  .slider_controls {
+    margin-top: 20px;
   }
 }
-
