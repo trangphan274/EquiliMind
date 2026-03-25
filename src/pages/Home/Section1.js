@@ -2,8 +2,13 @@ import { useEffect } from "react";
 import Statue from "../../assets/images/statue.png";
 import gsap from "gsap";
 import "../../styles/Section1Style.css";
+import { useNavigate } from "react-router-dom";
 
 const Section1 = () => {
+  const navigate = useNavigate();
+  const goPredict = () => {
+    navigate('/predict');  // đưa thẳng tới route /predict
+  }
 
   useEffect(() => {
     // statue fade + slide lên
@@ -49,6 +54,8 @@ const Section1 = () => {
       <div className="statue_overlay">
         <img src={Statue} className="statue" alt="statue" />
       </div>
+      <button className="explore_btn" onClick={goPredict}>Predict Burnout</button>
+
 
     </section>
   );

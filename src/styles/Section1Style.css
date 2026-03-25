@@ -91,21 +91,16 @@
   }
 }
 
-/* ===== LEAVES POSITION ONLY ===== */
-.leaf{
-  position: absolute;
-  z-index: 12;
-  width: 150px !important;
-  max-width: none;
-  height: auto;
-}
-
-.leaf1{
-  top: 35%;
-  left: 28%;
-}
-
-.rock{
-  top: 35%;
-  right: 30%;
+.explore_btn {
+  position: absolute;  /* cho nó free di chuyển */
+  bottom: 20px;        /* cách đáy 20px */
+  left: 20px;          /* cách trái 20px */
+  z-index: 20;         /* lên trên các layer khác */
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background-color: #fff; /* tuỳ chỉnh màu */
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
