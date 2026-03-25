@@ -98,8 +98,8 @@
   z-index: 20;         /* lên trên các layer khác */
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
-  background-color: #fff; /* tuỳ chỉnh màu */
-  color: #000;
+  background-color: #a0c8a236; /* tuỳ chỉnh màu */
+  color: #f9fbfa;
   border: none;
   border-radius: 5px;
   cursor: pointer;

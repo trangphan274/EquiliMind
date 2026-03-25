@@ -3,10 +3,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("../assets/logo/bg2.jpg");
 
   padding: 12rem 0;   /* dùng padding */
   margin-top: 6rem;   /* tách sec 1 */
   height: auto;       /* QUAN TRỌNG */
+   border-top: 4px solid #fff;   /* viền trắng trên */
+  border-bottom: 4px solid #fff; /* viền trắng dưới */
 }
 
 
@@ -15,7 +18,7 @@
   position: relative;
   z-index: 2; /* text nằm trên */
   text-align: center;
-  color: white;
+  color: rgb(24, 59, 19);
   z-index: 2;
   font-family: var(--playfair-font);  
 
