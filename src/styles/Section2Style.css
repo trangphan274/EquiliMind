@@ -25,20 +25,28 @@
   color: rgb(129, 97, 38);
 }
 /* veggies layout */
-.veggies {
+/* veggies layout → floating layout */
+.floating-container {
   position: absolute;
   inset: 0;          /* phủ full section */
   z-index: 1;
   pointer-events: none;
 }
 
-.veggie {
+.floating {
   position: absolute;
+  width:100px;
 }
-.chili { top: 18%; left: 20%; }
-.alecrim { top: 20%; right: 35%; }
-.espaguetti { bottom: 15%; left: 25%; }
-.tomato { bottom: 20%; right: 10%; }
-.green { top: 50%; left: 5%; }
-.purple_leaf { top: 25%; right: 5%; }
-.ervas { bottom: 10%; left: 50%; }
+
+
+.bird1 { top: 15%; left: 5%;width:100px; }
+.bird2 { bottom: 30%; right: 5%;width:100px; }
+
+.leaf1 { top: 45%; left: 0%;width:80px; }
+.leaf2 {  left: 40%;width:80px; }
+
+.rock { top: 70%; right: 50% ;width:100px;}
+.rock2 { top: 15%; right: 5% ;width:100px;}
+
+
+
