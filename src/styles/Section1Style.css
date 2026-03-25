@@ -2,13 +2,14 @@
   position: relative;
   min-height: 100vh;
   overflow: hidden;
+  
 }
 
 /* ===== MARQUEE ===== */
 .hero_marquee{
   position: absolute;
-  bottom: 40%;
-  width: 100%;
+  bottom: 50%;
+  width: 200%;
   overflow: hidden;
   z-index: 1;
 }
@@ -22,7 +23,7 @@
 .marquee_track h1{
   white-space: nowrap;
   margin-right: 4rem;
-  font-size: 8rem;
+  font-size: 2rem;
   color: white;
   font-family: 'Playfair Display', serif;
   font-weight: 400;
@@ -34,17 +35,19 @@
   to{ transform: translateX(-50%); }
 }
 
-/* ===== PASTA POSITION ===== */
-.pasta_overlay{
+/* ===== Statue ===== */
+.statue_overlay{
   position: absolute;
-  top: 50%;
+  top: 54%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
   opacity: 0;
   animation: fadeIn 2s ease-out forwards;
 }
-
+.statue{
+  width: clamp(420px, 110vw, 680px);
+}
 @keyframes fadeIn {
   to { opacity: 1; }
 }
@@ -53,7 +56,7 @@
 .hero_text{
   position: absolute;
   right: 6%;
-  top: 80%;
+  top: 70%;
   max-width: 420px;
   z-index: 15;
   transform: translateX(10%);
@@ -73,7 +76,7 @@
     align-items: center;
   }
 
-  .pasta_overlay{
+  .scale_overlay{
     position: relative;
     top: auto;
     left: auto;
@@ -91,11 +94,18 @@
 /* ===== LEAVES POSITION ONLY ===== */
 .leaf{
   position: absolute;
-  transform-origin: center;
+  z-index: 12;
+  width: 150px !important;
+  max-width: none;
+  height: auto;
 }
 
+.leaf1{
+  top: 35%;
+  left: 28%;
+}
 
-.leaf1{ top: 15%; left: 28%; }
-.leaf2{ top: 22%; right: 25%; }
-.leaf3{ bottom: 25%; left: 25%; }
-.leaf4{ bottom: 28%; right: 25%; }
+.rock{
+  top: 35%;
+  right: 30%;
+}

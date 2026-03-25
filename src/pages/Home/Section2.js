@@ -86,9 +86,9 @@ const render = () => {
     <section className="slogan">
       <div className="slogan-content">
         <p>
-          <span className="highlight">Authentic</span> and{" "}
-          <span className="highlight">delicious</span> flavor made with{" "}
-          <span className="highlight">love</span> and tradition.
+Know your <span className="highlight">limits</span>{" "}
+manage your <span className="highlight">stress</span>{" "}
+and stay mentally <span className="highlight">strong</span>.
         </p>
       </div>
 
