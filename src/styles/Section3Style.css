@@ -38,8 +38,8 @@
 }
 
 .service_card.active {
-  background-color: #4e5d39; /* Màu sáng hơn một chút cho card đang chọn */
-  border-color: transparent;
+  background-color: #4e5d391b; /* Màu sáng hơn một chút cho card đang chọn */
+  border-color: rgba(255, 255, 255, 0.338);
 }
 
 .service_card:hover {

@@ -1,15 +1,26 @@
-/* Hiệu ứng vân vải cho Form */
-form {
-  background-color: #fdfaf5; 
 
+form {
+ 
+  
+  background-color: #f9f1e5;
+  
   padding: 40px;
-  border-radius: 4px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  border: 1px solid #d1c7b7;
+  
+ 
+  border-radius: 25px; 
+  
+  
+  box-shadow: 0 0 20px rgba(26, 77, 54, 0.2), 0 10px 40px rgba(0, 0, 0, 0.1);
+  
+
+  border: 2px solid #1a4d36; 
   color: #333;
+  
+
+  box-sizing: border-box;
 }
 
-/* Labels */
+
 form label {
   display: block;
   margin-top: 20px;
@@ -19,19 +30,20 @@ form label {
   font-size: 0.95rem;
 }
 
-/* Inputs, Select & React Select */
+
 form input[type="number"],
 form select,
 .react-select__control {
   width: 100%;
-  padding: 10px;
-  border-radius: 0 !important; /* Vuông vức cho đúng chất branding */
+  padding: 12px;
+ 
+  border-radius: 8px !important; 
   border: 1px solid #1a4d36 !important;
-  background-color: rgba(255, 255, 255, 0.6) !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
   font-size: 1rem;
 }
 
-/* Helper text */
+
 form small {
   display: block;
   margin-top: 4px;
@@ -39,13 +51,14 @@ form small {
   font-style: italic;
 }
 
-/* Sliders */
+
 input[type="range"] {
-  -webkit-appearance: none;
+
   width: 100%;
-  height: 6px;
+  height: 8px;
   background: #d1c7b7;
   accent-color: #1a4d36;
+  border-radius: 4px;
 }
 
 /* Radio buttons group */
@@ -54,9 +67,9 @@ input[type="radio"] {
   margin-right: 5px;
 }
 
-/* Nút Predict */
+
 button[type="submit"] {
-  background-color: #1a4d36;
+  background-color: #1a4d36ea;
   color: white;
   width: 100%;
   padding: 15px;
@@ -67,9 +80,12 @@ button[type="submit"] {
   cursor: pointer;
   transition: 0.3s ease;
   margin-top: 30px;
+  
+  border-radius: 12px;
 }
 
 button[type="submit"]:hover {
-  background-color: #2a7e5c;
-  box-shadow: 0 5px 15px rgba(26, 77, 54, 0.3);
+  background-color: #2a7e5c54;
+  box-shadow: 0 5px 15px rgba(26, 77, 54, 0.4);
+  transform: translateY(-2px);
 }
