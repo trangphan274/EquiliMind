@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
 
         <p className="footer-email">
-          contact@lereditaexpress.com.br
+          contact@equilimind.com
         </p>
 
         <a href="#top" className="back-top">↑ Top</a>
@@ -47,7 +47,7 @@ const Footer = () => {
 
     <Row>
       <Col className="footer-copy text-center">
-        © 2024 EquiliMind. All rights reserved.
+        © 2026 EquiliMind. All rights reserved.
       </Col>
     </Row>
   </Container>

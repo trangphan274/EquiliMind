@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import Select from "react-select";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "../styles/PredictFormStyle.css";
+import dropdown from "../data/roleAndDepartment.json";
 
-// giả sử dataset đã load
-const roles = [ /* ...unique roles from dataset */ ];
-const departments = [ /* ...unique departments */ ];
+const roles = dropdown.roles;
+const departments = dropdown.departments;
 const jobLevels = ["Entry", "Mid", "Senior", "Manager", "Lead"];
 
 const BurnoutForm = () => {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
-    role: null,
+    role: "",
     department: "",
     jobLevel: "",
     satisfaction: 0.5,
@@ -24,114 +28,183 @@ const BurnoutForm = () => {
     setForm(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submit:", form);
-    // TODO: call predict API
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/predict",
+        form
+      );
+
+      navigate("/predict-result", {
+        state: { ...form, burnout_score: response.data.burnout_score }
+      });
+
+    } catch (error) {
+      console.log("Predict error:", error);
+      alert("Server error bro");
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: 600, margin: "0 auto" }}>
+    <form onSubmit={handleSubmit} className="predict-form">
+
       {/* Role */}
-      <label>What’s your job title?</label>
-      <Select
-        options={roles.map(r => ({ value: r, label: r }))}
-        value={form.role ? { value: form.role, label: form.role } : null}
-        onChange={val => handleChange("role", val.value)}
-        placeholder="Select role..."
-        isSearchable
-      />
-      <small>Choose your role (searchable)</small>
-
-      {/* Department */}
-      <label>Which department do you work in?</label>
-      <select
-        value={form.department}
-        onChange={e => handleChange("department", e.target.value)}
-      >
-        <option value="">Select department</option>
-        {departments.map(d => (
-          <option key={d} value={d}>{d}</option>
-        ))}
-      </select>
-
-      {/* Job Level */}
-      <label>What’s your job level?</label>
-      <div>
-        {jobLevels.map(level => (
-          <label key={level} style={{ marginRight: 10 }}>
-            <input
-              type="radio"
-              name="jobLevel"
-              value={level}
-              checked={form.jobLevel === level}
-              onChange={e => handleChange("jobLevel", e.target.value)}
-            />
-            {level}
-          </label>
-        ))}
+      <div className="form-group">
+        <label>What’s your job title?</label>
+        <Select
+          options={roles.map(r => ({ value: r, label: r }))}
+          value={form.role ? { value: form.role, label: form.role } : null}
+          onChange={val => handleChange("role", val.value)}
+          placeholder="Select role..."
+          isSearchable
+        />
       </div>
+<div className="divider"></div>
+      {/* Department */}
+      <div className="form-group">
+  <label>Which department do you work in?</label>
 
-      {/* Sliders 0-1 */}
-      <label>How happy are you at work? ({form.satisfaction.toFixed(2)})</label>
+  <div className="select-row">
+    <select
+      value={form.department}
+      onChange={e => handleChange("department", e.target.value)}
+    >
+      <option value="">Select department</option>
+      {departments.map(d => (
+        <option key={d} value={d}>{d}</option>
+      ))}
+    </select>
+  </div>
+</div>
+<div className="divider"></div>
+      {/* Job Level */}
+     <div className="radio-group">
+  {jobLevels.map(level => (
+    <label key={level} className="radio-item">
       <input
-        type="range"
-        min="0"
-        max="1"
-        step="0.01"
-        value={form.satisfaction}
-        onChange={e => handleChange("satisfaction", parseFloat(e.target.value))}
+        type="radio"
+        name="jobLevel"
+        value={level}
+        checked={form.jobLevel === level}
+        onChange={e => handleChange("jobLevel", e.target.value)}
       />
+      <span className="circle"></span>
+      <span className="label-text">{level}</span>
+    </label>
+  ))}
+</div>
+<div className="divider"></div>
+      {/* Sliders */}
+      <div className="scale-box">
+  <span>Low</span>
+  <span>Medium</span>
+  <span>High</span>
+</div>
+      <div className="form-group">
+        
+  <label>Satisfaction</label>
 
-      <label>How heavy is your workload? ({form.workload.toFixed(2)})</label>
-      <input
-        type="range"
-        min="0"
-        max="1"
-        step="0.01"
-        value={form.workload}
-        onChange={e => handleChange("workload", parseFloat(e.target.value))}
-      />
+  
 
-      <label>How well do you work with your team? ({form.collaboration.toFixed(2)})</label>
-      <input
-        type="range"
-        min="0"
-        max="1"
-        step="0.01"
-        value={form.collaboration}
-        onChange={e => handleChange("collaboration", parseFloat(e.target.value))}
-      />
+  <div className="slider-row">
+    <input
+      type="range"
+      min="0"
+      max="1"
+      step="0.01"
+      value={form.satisfaction}
+      onChange={e => handleChange("satisfaction", parseFloat(e.target.value))}
+    />
+    <span className="slider-value">{form.satisfaction.toFixed(2)}</span>
+  </div>
+</div>
+<div className="divider"></div>
+<div className="form-group">
+  <label>Workload</label>
 
-      {/* Number inputs */}
-      <label>Overtime hours per month (0–74)</label>
-      <input
-        type="number"
-        min="0"
-        max="74"
-        value={form.overtime}
-        onChange={e => handleChange("overtime", parseInt(e.target.value))}
-      />
+  
 
-      <label>Time with company in months (1–357)</label>
-      <input
-        type="number"
-        min="1"
-        max="357"
-        value={form.tenure}
-        onChange={e => handleChange("tenure", parseInt(e.target.value))}
-      />
+  <div className="slider-row">
+    <input
+      type="range"
+      min="0"
+      max="1"
+      step="0.01"
+      value={form.workload}
+      onChange={e => handleChange("workload", parseFloat(e.target.value))}
+    />
+    <span className="slider-value">
+      {form.workload.toFixed(2)}
+    </span>
+  </div>
+</div>
+<div className="divider"></div>
+<div className="form-group">
+  <label>Collaboration</label>
 
-      <label>Annual salary ($27K–$384K)</label>
-      <input
-        type="number"
-        min="27000"
-        max="384000"
-        value={form.salary}
-        onChange={e => handleChange("salary", parseInt(e.target.value))}
-      />
+ 
 
-      <button type="submit" style={{ marginTop: 20 }}>Predict Burnout</button>
+  <div className="slider-row">
+    <input
+      type="range"
+      min="0"
+      max="1"
+      step="0.01"
+      value={form.collaboration}
+      onChange={e => handleChange("collaboration", parseFloat(e.target.value))}
+    />
+    <span className="slider-value">
+      {form.collaboration.toFixed(2)}
+    </span>
+  </div>
+</div>
+<div className="divider"></div>
+      {/* Numbers */}
+      <div className="form-group">
+  <label>Overtime hours</label>
+  <div className="input-row">
+    <input
+      type="number"
+      min="0"
+      max="74"
+      value={form.overtime}
+      onChange={e => handleChange("overtime", parseInt(e.target.value) || 0)}
+    />
+  </div>
+</div>
+<div className="divider"></div>
+<div className="form-group">
+  <label>Tenure (months)</label>
+  <div className="input-row">
+    <input
+      type="number"
+      min="1"
+      max="357"
+      value={form.tenure}
+      onChange={e => handleChange("tenure", parseInt(e.target.value) || 1)}
+    />
+  </div>
+</div>
+<div className="divider"></div>
+<div className="form-group">
+  <label>Salary</label>
+  <div className="input-row">
+    <input
+      type="number"
+      min="27000"
+      max="384000"
+      value={form.salary}
+      onChange={e => handleChange("salary", parseInt(e.target.value) || 0)}
+    />
+  </div>
+</div>
+ 
+
+      <button type="submit" className="predict-btn">
+        Predict Burnout
+      </button>
     </form>
   );
 };

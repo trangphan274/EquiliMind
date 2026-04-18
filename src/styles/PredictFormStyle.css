@@ -1,91 +1,206 @@
-
-form {
- 
-  
-  background-color: #f9f1e5;
-  
-  padding: 40px;
-  
- 
-  border-radius: 25px; 
-  
-  
-  box-shadow: 0 0 20px rgba(26, 77, 54, 0.2), 0 10px 40px rgba(0, 0, 0, 0.1);
-  
-
-  border: 2px solid #1a4d36; 
-  color: #333;
-  
-
-  box-sizing: border-box;
+/* RADIO GROUP */
+.radio-group {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-
-form label {
-  display: block;
-  margin-top: 20px;
-  margin-bottom: 8px;
-  font-weight: 700;
-  color: #1a4d36;
-  font-size: 0.95rem;
-}
-
-
-form input[type="number"],
-form select,
-.react-select__control {
-  width: 100%;
-  padding: 12px;
- 
-  border-radius: 8px !important; 
-  border: 1px solid #1a4d36 !important;
-  background-color: rgba(255, 255, 255, 0.8) !important;
-  font-size: 1rem;
-}
-
-
-form small {
-  display: block;
-  margin-top: 4px;
-  color: #666;
-  font-style: italic;
-}
-
-
-input[type="range"] {
-
-  width: 100%;
-  height: 8px;
-  background: #d1c7b7;
-  accent-color: #1a4d36;
-  border-radius: 4px;
-}
-
-/* Radio buttons group */
-input[type="radio"] {
-  accent-color: #1a4d36;
-  margin-right: 5px;
-}
-
-
-button[type="submit"] {
-  background-color: #1a4d36ea;
-  color: white;
-  width: 100%;
-  padding: 15px;
-  border: none;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+/* ITEM */
+.radio-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   cursor: pointer;
-  transition: 0.3s ease;
-  margin-top: 30px;
-  
-  border-radius: 12px;
 }
 
-button[type="submit"]:hover {
-  background-color: #2a7e5c54;
-  box-shadow: 0 5px 15px rgba(26, 77, 54, 0.4);
+/* hide default radio */
+.radio-item input {
+  display: none;
+}
+
+/* vòng tròn ngoài */
+.circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #cfcfcf;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* chấm bên trong */
+.circle::after {
+  content: "";
+  width: 38px;
+  height: 38px;
+  background: #3b4a6b; /* màu đậm như hình */
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: all 0.25s ease;
+}
+
+/* khi chọn */
+.radio-item input:checked + .circle::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* border đổi màu theo trạng thái */
+.radio-item:nth-child(1) .circle { border-color: #3b4a6b; }
+.radio-item:nth-child(2) .circle { border-color: #3b4a6b; }
+.radio-item:nth-child(3) .circle { border-color: #c9a34e; }
+.radio-item:nth-child(4) .circle { border-color: #d47a7a; }
+.radio-item:nth-child(5) .circle { border-color: #d47a7a; }
+
+/* text dưới */
+.label-text {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* hover nhẹ */
+.radio-item:hover .circle {
+  transform: scale(1.08);
+}
+.predict-form label {
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-align: center;
+}
+.form-group {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.divider {
+  width: 520px;
+  height: 2px;
+  background: #e6d3a3;
+  margin: 25px auto 30px; /* 👈 thêm margin-bottom */
+  border-radius: 2px;
+}
+/* label mức độ */
+.scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #843d3d;
+  margin-bottom: 5px;
+}
+scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #843d3d;
+  margin-bottom: 5px;
+}
+.scale-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: linear-gradient(90deg, #6b7280, #f59e0b, #dc2626); /* 👈 gradient mức độ */
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin: 25px auto 35px;
+  width: 80%;
+
+  font-size: 0.9rem;
+  font-weight: 700;   /* 👈 đậm lên */
+  color: white;       /* 👈 đổi trắng cho nổi */
+}
+
+/* text */
+.scale-box span {
+  flex: 1;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* 👈 nổi hơn */
+}
+
+/* slider + số */
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slider-row input[type="range"] {
+  flex: 1;
+}
+
+.slider-value {
+  width: 45px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.input-row {
+  display: flex;
+  justify-content: center;
+}
+
+.input-row input {
+  width: 180px;
+  padding: 12px 16px;
+  border-radius: 25px;   /* 👈 bo tròn hơn */
+  text-align: center;
+}
+.select-row {
+  display: flex;
+  justify-content: center;
+}
+
+.select-row select {
+  width: 260px;
+  padding: 12px 15px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  font-size: 0.95rem;
+  appearance: none; /* bỏ style default */
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* focus */
+.select-row select:focus {
+  border-color: #f59e0b;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(245,158,11,0.15);
+  outline: none;
+}
+.predict-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 30px;
+
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: #fff;
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+
+  cursor: pointer;
+  margin-top: 40px;
+
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+/* hover */
+.predict-btn:hover {
   transform: translateY(-2px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.2);
+}
+
+/* click */
+.predict-btn:active {
+  transform: scale(0.97);
 }

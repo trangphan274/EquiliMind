@@ -6,8 +6,8 @@ const PredictPage = () => {
   return (
     <div className="predict-page-wrapper">
       <div className="brand-header">
-        <h1 className="brand-name">A</h1>
-        <p className="brand-slogan">b</p>
+      
+        <p className="brand-slogan">Your work patterns can reveal more than you think. Let’s assess your burnout risk.</p>
       </div>
 
       <div className="form-container-glass">

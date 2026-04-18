@@ -5,6 +5,7 @@ import Home from './pages/Home/Home';
 import PredictPage from './pages/Predict/PredictPage';
 
 import LoadingScreen from './components/LoadingScreen';
+import PredictResult from './pages/Predict/PredictResultPage';
 
 function App() {
   const [done, setDone] = useState(false);
@@ -27,7 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/predict" element={<PredictPage />} />
-         
+          <Route path="/predict-result" element={<PredictResult />} />
         </Routes>
       </Router>
     </>

@@ -38,7 +38,7 @@ html {
   scroll-behavior: smooth;
 }
 body{
-  background-image: url("./assets/logo/bg.png") ;
+  background-color: #ffffff;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;

@@ -1,5 +1,5 @@
 .loading-container {
-  position: fixed;   /* thêm cái này */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -8,9 +8,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #e3dfbc ;
+  
+  /* Thay màu vàng cũ bằng Xanh dương sâu (Midnight Blue) */
+  background: #e9e779; 
 
-  transition: transform 1s ease;
+  transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1); /* Hiệu ứng mượt hơn */
   z-index: 9999;
 }
 
@@ -20,39 +22,58 @@
 
 .content {
   display: flex;
+  flex-direction: column; /* Chuyển thành cột nếu muốn spinner nằm trên chữ, hoặc giữ nguyên flex nếu muốn nằm ngang */
   align-items: center;
-  gap: 12px;
+  gap: 20px;
   transition: transform 0.6s ease;
 }
 
 .content.done {
   transform: scale(0.8);
+  opacity: 0; /* Cho ẩn dần khi xong */
 }
 
+/* Spinner - Chuyển sang màu Trắng hoặc Cyan sáng */
 .spinner {
   width: 50px;
   height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid #ecd75f; /* Màu xanh lơ (Cyan) làm điểm nhấn */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
-/* chữ */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Chữ EQUILIMIND */
 .content h1 {
-  color: rgb(146, 203, 96);
-  font-size: 26px;
-  font-weight: 600;
+  /* Chuyển sang Trắng tinh khôi */
+  color: #000000;
+  font-size: 28px;
+  font-weight: 700;
   margin: 0;
   display: flex;
+  letter-spacing: 6px; /* Tăng khoảng cách chữ cho sang */
+  font-family: 'Playfair Display', serif; /* Đồng bộ font với Brand */
 }
 
-/* từng chữ */
+/* Từng chữ cái nhảy lên */
 .content span {
   opacity: 0;
+  color: #000000;
   animation: fadeUp 0.5s forwards;
+  text-shadow: 0 0 20px rgba(94, 234, 212, 0.5); /* Hiệu ứng phát sáng nhẹ */
 }
+
+/* Delay cho từng chữ cái (Nếu bạn render bằng JS từng chữ) */
+/* .content span:nth-child(1) { animation-delay: 0.1s; } ... */
 
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
