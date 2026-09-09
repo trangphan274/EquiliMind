@@ -16,22 +16,26 @@ function Header() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto">
-            <Nav.Link as ={Link} to="/" >
+         <Nav className="ms-auto">
+            <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
-            <Nav.Link as ={Link} to="/about">
+
+            <Nav.Link as={Link} to="/about">
               About
             </Nav.Link>
-            
-            <Nav.Link as ={Link} to="/contact">
+
+            <Nav.Link as={Link} to="/contact">
               Contact
             </Nav.Link>
-            <Nav.Link as={Link} to="/">
-            
 
+            <Nav.Link as={Link} to="/login">
+              Login
             </Nav.Link>
-           
+
+            <Nav.Link as={Link} to="/register">
+              Register
+            </Nav.Link>
           </Nav>
           
         </Navbar.Collapse>

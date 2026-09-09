@@ -1,8 +1,8 @@
 import React from 'react';
-import '../styles/LoadingScreen.css';
-import spinner from '../assets/logo/Spinner.gif';
+import '../../styles/LoadingScreen.css';
+import spinner from '../../assets/logo/Spinner.gif';
 
-const LoadingScreen = ({ done }) => {
+const Loading = ({ done }) => {
   const text = "EquiliMind".split("");
 
   return (
@@ -22,4 +22,4 @@ const LoadingScreen = ({ done }) => {
   );
 };
 
-export default LoadingScreen;
+export default Loading;

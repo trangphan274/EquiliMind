@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Home from './pages/Home/Home';
-import PredictPage from './pages/Predict/PredictPage';
-
-import LoadingScreen from './components/LoadingScreen';
-import PredictResult from './pages/Predict/PredictResultPage';
-import About from './pages/About';
+import Home from './pages/Home/Home.jsx';
+import PredictPage from './pages/Prediction/PredictPage.jsx';
+import Login from './pages/Auth/Login.jsx';
+import Register from './pages/Auth/Register.jsx';
+import LoadingScreen from './components/common/Loading.jsx';
+import PredictResult from './pages/Prediction/PredictResultPage.jsx';
+import About from './pages/About/About.jsx';
 
 function App() {
   const [done, setDone] = useState(false);
@@ -31,6 +32,8 @@ function App() {
           <Route path="/predict" element={<PredictPage />} />
           <Route path="/predict-result" element={<PredictResult />} />
           <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </Router>
     </>

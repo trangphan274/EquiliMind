@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../styles/PredictFormStyle.css";
+import '../../styles/PredictFormStyle.css';
 import dropdown from "../../data/roleAndDepartment.json";
 
 const roles = dropdown.roles;

@@ -1,4 +1,49 @@
-/* RADIO GROUP */
+/* =========================
+   PREDICT FORM
+   ========================= */
+
+.predict-form {
+  width: 100%;
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 40px;
+
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(180, 205, 235, 0.5);
+  border-radius: 20px;
+
+  box-shadow: 0 15px 40px rgba(75, 110, 150, 0.12);
+  backdrop-filter: blur(10px);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   FORM GROUP
+   ========================= */
+
+.predict-form .form-group {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.predict-form .form-group > label {
+  display: block;
+  margin-bottom: 18px;
+
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #3b4d63;
+
+  text-align: center;
+}
+
+
+/* =========================
+   RADIO GROUP
+   ========================= */
+
 .radio-group {
   display: flex;
   justify-content: center;
@@ -6,137 +51,241 @@
   flex-wrap: wrap;
 }
 
+
 /* ITEM */
+
 .radio-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   cursor: pointer;
 }
 
+
 /* hide default radio */
+
 .radio-item input {
   display: none;
 }
 
-/* vòng tròn ngoài */
+
+/* =========================
+   RADIO CIRCLE
+   ========================= */
+
 .circle {
   width: 60px;
   height: 60px;
+
   border-radius: 50%;
   border: 2px solid #cfcfcf;
+
   position: relative;
+
+  background: #ffffff;
+
   transition: all 0.3s ease;
 }
 
-/* chấm bên trong */
+
+/* inner circle */
+
 .circle::after {
   content: "";
+
   width: 38px;
   height: 38px;
-  background: #3b4a6b; /* màu đậm như hình */
+
+  background: #82b7ed;
+
   border-radius: 50%;
+
   position: absolute;
   top: 50%;
   left: 50%;
+
   transform: translate(-50%, -50%) scale(0);
+
   transition: all 0.25s ease;
 }
 
-/* khi chọn */
+
+/* selected */
+
 .radio-item input:checked + .circle::after {
   transform: translate(-50%, -50%) scale(1);
 }
 
-/* border đổi màu theo trạng thái */
-.radio-item:nth-child(1) .circle { border-color: #3b4a6b; }
-.radio-item:nth-child(2) .circle { border-color: #3b4a6b; }
-.radio-item:nth-child(3) .circle { border-color: #c9a34e; }
-.radio-item:nth-child(4) .circle { border-color: #d47a7a; }
-.radio-item:nth-child(5) .circle { border-color: #d47a7a; }
 
-/* text dưới */
-.label-text {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #333;
+/* =========================
+   RADIO BORDER COLORS
+   KEEP ORIGINAL COLORS
+   ========================= */
+
+.radio-item:nth-child(1) .circle {
+  border-color: #3b4a6b;
 }
 
-/* hover nhẹ */
+.radio-item:nth-child(2) .circle {
+  border-color: #3b4a6b;
+}
+
+.radio-item:nth-child(3) .circle {
+  border-color: #c9a34e;
+}
+
+.radio-item:nth-child(4) .circle {
+  border-color: #d47a7a;
+}
+
+.radio-item:nth-child(5) .circle {
+  border-color: #d47a7a;
+}
+
+
+/* hover */
+
 .radio-item:hover .circle {
   transform: scale(1.08);
-}
-.predict-form label {
-  font-size: 1.35rem;
-  font-weight: 700;
-  text-align: center;
-}
-.form-group {
-  margin-bottom: 35px;
-  text-align: center;
+
+  box-shadow: 0 5px 15px rgba(98, 155, 212, 0.15);
 }
 
+
+/* =========================
+   RADIO TEXT
+   ========================= */
+
+.label-text {
+  margin-top: 10px;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  color: #3b4d63;
+}
+
+
+/* =========================
+   DIVIDER
+   ========================= */
+
 .divider {
-  width: 520px;
+  width: 80%;
+  max-width: 520px;
   height: 2px;
-  background: #e6d3a3;
-  margin: 25px auto 30px; /* 👈 thêm margin-bottom */
+
+  background: #d6e5f5;
+
+  margin: 25px auto 30px;
+
   border-radius: 2px;
 }
-/* label mức độ */
+
+
+/* =========================
+   SCALE LABELS
+   ========================= */
+
 .scale-labels {
   display: flex;
   justify-content: space-between;
+
+  width: 80%;
+  margin: 0 auto 8px;
+
   font-size: 0.8rem;
-  color: #843d3d;
-  margin-bottom: 5px;
+  color: #718096;
 }
-scale-labels {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  color: #843d3d;
-  margin-bottom: 5px;
-}
+
+
+/* =========================
+   SCALE BOX
+   ========================= */
+
 .scale-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  background: linear-gradient(90deg, #6b7280, #f59e0b, #dc2626); /* 👈 gradient mức độ */
-  border-radius: 30px;
-  padding: 10px 20px;
-  margin: 25px auto 35px;
   width: 80%;
 
+  margin: 25px auto 35px;
+  padding: 10px 20px;
+
+  background: linear-gradient(
+    90deg,
+    #dbeafe,
+    #a9cdf2,
+    #82b7ed
+  );
+
+  border-radius: 30px;
+
   font-size: 0.9rem;
-  font-weight: 700;   /* 👈 đậm lên */
-  color: white;       /* 👈 đổi trắng cho nổi */
+  font-weight: 600;
+
+  color: #3b4d63;
+
+  box-sizing: border-box;
 }
 
-/* text */
+
+/* scale text */
+
 .scale-box span {
   flex: 1;
+
   text-align: center;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* 👈 nổi hơn */
+
+  text-shadow: none;
 }
 
-/* slider + số */
+
+/* =========================
+   SLIDER
+   ========================= */
+
 .slider-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+
+  gap: 12px;
+
+  width: 80%;
+  margin: 0 auto;
 }
 
 .slider-row input[type="range"] {
   flex: 1;
+
+  accent-color: #82b7ed;
+
+  cursor: pointer;
 }
+
+
+/* =========================
+   SLIDER VALUE
+   ========================= */
 
 .slider-value {
   width: 45px;
+
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
+
+  color: #3b4d63;
+
+  text-align: center;
 }
+
+
+/* =========================
+   NUMBER INPUT
+   ========================= */
+
 .input-row {
   display: flex;
   justify-content: center;
@@ -144,10 +293,40 @@ scale-labels {
 
 .input-row input {
   width: 180px;
-  padding: 12px 16px;
-  border-radius: 25px;   /* 👈 bo tròn hơn */
+  height: 46px;
+
+  padding: 0 16px;
+
+  border: 1px solid #d6e0ec;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #2d3748;
+
+  font-size: 14px;
+
   text-align: center;
+
+  outline: none;
+
+  box-sizing: border-box;
+
+  transition: all 0.2s ease;
 }
+
+
+.input-row input:focus {
+  border-color: #82b7ed;
+
+  box-shadow: 0 0 0 3px rgba(130, 183, 237, 0.15);
+}
+
+
+/* =========================
+   SELECT
+   ========================= */
+
 .select-row {
   display: flex;
   justify-content: center;
@@ -155,52 +334,118 @@ scale-labels {
 
 .select-row select {
   width: 260px;
-  padding: 12px 15px;
-  border-radius: 25px;
-  border: 1px solid #ddd;
-  background: #fafafa;
-  font-size: 0.95rem;
-  appearance: none; /* bỏ style default */
+  height: 46px;
+
+  padding: 0 15px;
+
+  border: 1px solid #d6e0ec;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #2d3748;
+
+  font-size: 14px;
+
+  appearance: none;
+
   text-align: center;
+
   cursor: pointer;
-  transition: all 0.25s ease;
+
+  outline: none;
+
+  transition: all 0.2s ease;
 }
 
-/* focus */
+
 .select-row select:focus {
-  border-color: #f59e0b;
-  background: #fff;
-  box-shadow: 0 0 0 3px rgba(245,158,11,0.15);
-  outline: none;
+  border-color: #82b7ed;
+
+  background: #ffffff;
+
+  box-shadow: 0 0 0 3px rgba(130, 183, 237, 0.15);
 }
+
+
+/* =========================
+   PREDICT BUTTON
+   ========================= */
+
 .predict-btn {
   width: 100%;
-  padding: 16px;
-  border: none;
-  border-radius: 30px;
+  height: 46px;
 
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-
-  color: #fff;
-  background: linear-gradient(135deg, #f59e0b, #f97316);
-
-  cursor: pointer;
   margin-top: 40px;
 
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
+  border: none;
+  border-radius: 9px;
+
+  background: linear-gradient(
+    135deg,
+    #82b7ed,
+    #629bd4
+  );
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  letter-spacing: 0.2px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
 }
 
-/* hover */
+
 .predict-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 35px rgba(0,0,0,0.2);
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 15px rgba(98, 155, 212, 0.25);
 }
 
-/* click */
+
 .predict-btn:active {
-  transform: scale(0.97);
+  transform: translateY(0);
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 600px) {
+  .predict-form {
+    margin: 25px 15px;
+    padding: 30px 22px;
+
+    border-radius: 16px;
+  }
+
+  .predict-form .form-group > label {
+    font-size: 1.05rem;
+  }
+
+  .radio-group {
+    gap: 18px;
+  }
+
+  .circle {
+    width: 52px;
+    height: 52px;
+  }
+
+  .circle::after {
+    width: 32px;
+    height: 32px;
+  }
+
+  .scale-box,
+  .scale-labels,
+  .slider-row {
+    width: 100%;
+  }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import PredictForm from '../../components/PredictForm'; // Nhớ check đúng tên file component của bạn
+import PredictForm from '../../components/Test/PredictForm'; // Nhớ check đúng tên file component của bạn
 import '../../styles/PredictPageStyle.css';
 
 const PredictPage = () => {
