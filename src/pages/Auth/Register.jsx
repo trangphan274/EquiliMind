@@ -1,10 +1,11 @@
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import { UserPlus, Eye, EyeOff } from "lucide-react";
 import "../../styles/AuthStyle.css";
 
 function Register() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -17,6 +18,8 @@ function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState('');
+const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -72,13 +75,51 @@ function Register() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (!validate()) return;
+  const validationErrors = validate();
 
-    console.log("Register:", formData);
-  };
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors(validationErrors);
+    return;
+  }
+
+  try {
+    setLoading(true);
+    setServerError('');
+
+    const response = await fetch(
+      'http://127.0.0.1:8000/auth/register',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          username: formData.username,
+          email: formData.email,
+          password: formData.password,
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      setServerError(data.detail);
+      return;
+    }
+
+    navigate('/login');
+  } catch (error) {
+    setServerError('Unable to connect to the server.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="auth-page">
@@ -261,9 +302,13 @@ function Register() {
             </div>
 
           </div>
-
-          <button type="submit" className="register-button">
-            Sign Up
+{serverError && (
+  <span className="error-message">
+    {serverError}
+  </span>
+)}
+          <button type="submit" className="register-button" disabled={loading}>
+            {loading ? 'Creating account...' : 'Sign Up'}
           </button>
 
         </form>
