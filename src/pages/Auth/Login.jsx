@@ -13,6 +13,8 @@ function Login() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState('');
+const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,21 +44,50 @@ function Login() {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    const validationErrors = validate();
+  const validationErrors = validate();
 
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors(validationErrors);
+    return;
+  }
+
+  try {
+    setLoading(true);
+    setServerError('');
+
+    const response = await fetch(
+      'http://127.0.0.1:8000/auth/login',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username_or_email: formData.usernameOrEmail,
+          password: formData.password,
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      setServerError(data.detail);
       return;
     }
 
-    console.log('Login:', formData);
+    localStorage.setItem('user', JSON.stringify(data.user));
 
-    // TODO: Connect to backend later
-    // navigate('/');
-  };
+    navigate('/');
+  } catch (error) {
+    setServerError('Unable to connect to the server.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="auth-page">
@@ -135,9 +166,13 @@ function Login() {
               Forgot password?
             </button>
           </div>
-
-          <button type="submit" className="auth-submit">
-            Sign In
+{serverError && (
+  <span className="error-message">
+    {serverError}
+  </span>
+)}
+          <button type="submit" className="auth-submit" disabled={loading}>
+            {loading ? 'Signing In...' : 'Sign In'}
           </button>
         </form>
 
