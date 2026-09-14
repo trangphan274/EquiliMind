@@ -25,7 +25,7 @@ function Header() {
               About
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/contact">
+            <Nav.Link as={Link} to="/contact"> 
               Contact
             </Nav.Link>
 

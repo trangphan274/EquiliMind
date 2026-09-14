@@ -1,0 +1,75 @@
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  background: #f5f8fc;
+}
+
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  background: #ffffff;
+  border-right: 1px solid #e5edf6;
+  box-sizing: border-box;
+}
+
+.sidebar-logo {
+  padding: 8px 12px 28px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #4f7faf;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 13px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #718096;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background: #f0f6fd;
+  color: #4f7faf;
+}
+
+.sidebar-link.active {
+  background: #eaf3fc;
+  color: #4f7faf;
+  font-weight: 600;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #edf2f7;
+}
+
+.logout-button {
+  font-family: inherit;
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0;
+  padding: 40px;
+  box-sizing: border-box;
+}
