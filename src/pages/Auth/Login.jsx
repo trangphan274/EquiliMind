@@ -81,7 +81,7 @@ const handleSubmit = async (e) => {
 
     localStorage.setItem('user', JSON.stringify(data.user));
 
-    navigate('/dashboard');
+    navigate('/personal-home');
   } catch (error) {
     setServerError('Unable to connect to the server.');
   } finally {

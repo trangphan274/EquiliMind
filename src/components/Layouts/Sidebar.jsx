@@ -22,14 +22,14 @@ function Sidebar() {
       </div>
 
       <nav className="sidebar-nav">
-        <NavLink to="/dashboard" className="sidebar-link">
+        <NavLink to="/personal-home" className="sidebar-link">
           <LayoutDashboard size={20} />
-          <span>Dashboard</span>
+          <span>Home</span>
         </NavLink>
 
-        <NavLink to="/predict" className="sidebar-link">
+        <NavLink to="/dashboard" className="sidebar-link">
           <Brain size={20} />
-          <span>Burnout Test</span>
+          <span>Dashboard</span>
         </NavLink>
 
         <NavLink to="/records" className="sidebar-link">
