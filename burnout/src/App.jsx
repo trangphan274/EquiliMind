@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate
+} from 'react-router-dom';
 
 import Home from './pages/Home/Home.jsx';
 import PredictPage from './pages/Prediction/PredictPage.jsx';
@@ -14,6 +19,16 @@ import Dashboard from './pages/Personal/Dashboard.jsx';
 import Records from './pages/Records/Records.jsx';
 import AppLayout from './components/Layouts/AppLayout.jsx';
 import PersonalHome from './pages/Personal/PersonalHome.jsx';
+
+
+function RootRedirect() {
+  const user = localStorage.getItem('user');
+
+  return user
+    ? <Navigate to="/personal-home" replace />
+    : <Home />;
+}
+
 
 function App() {
   const [done, setDone] = useState(false);
@@ -35,7 +50,7 @@ function App() {
       <Router>
         <Routes>
 
-  <Route path="/" element={<Home />} />
+<Route path="/" element={<RootRedirect />} />
   <Route path="/about" element={<About />} />
 <Route element={<PublicOnlyRoute />}>
   <Route path="/login" element={<Login />} />

@@ -79,6 +79,8 @@ const handleSubmit = async (e) => {
       return;
     }
 
+    // Save JWT and user information
+    localStorage.setItem('access_token', data.access_token);
     localStorage.setItem('user', JSON.stringify(data.user));
 
     navigate('/personal-home');

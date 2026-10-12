@@ -21,11 +21,19 @@ function WelcomeHeader({ name = 'Evelyn' }) {
       </div>
 
       <button
-        type="button"
-        className="log-note-button"
-      >
-        📝 Log Daily Note
-      </button>
+  type="button"
+  className="log-note-button"
+  onClick={() => {
+    document
+      .querySelector(".daily-reflection")
+      ?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+  }}
+>
+  📝 Log Daily Note
+</button>
 
     </section>
   );

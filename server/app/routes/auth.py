@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, EmailStr
 import bcrypt
-
+from app.service.auth_service import create_access_token
 from app.database.database import users_collection
 
 
@@ -111,9 +111,16 @@ async def login(user: LoginRequest):
             detail="Invalid username/email or password"
         )
 
+       # Create JWT token
+    access_token = create_access_token(
+        str(existing_user["_id"])
+    )
+
     # Login successful
     return {
         "message": "Login successful",
+        "access_token": access_token,
+        "token_type": "bearer",
         "user": {
             "id": str(existing_user["_id"]),
             "first_name": existing_user["first_name"],
