@@ -1,0 +1,158 @@
+# from flask import Flask, request, jsonify
+# from flask_cors import CORS
+# import pandas as pd
+# import os
+# import joblib
+# import json
+# import traceback
+
+# app = Flask(__name__)
+# CORS(app)
+
+# # =========================
+# # LOAD MODEL + FILES
+# # =========================
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# model = joblib.load(os.path.join(BASE_DIR, "models", "model.pkl"))
+# mapping_dict = joblib.load(os.path.join(BASE_DIR, "models", "encoder.pkl"))
+
+# with open(os.path.join(BASE_DIR, "models", "keep_columns.json"), "r") as f:
+#     keep_columns = json.load(f)
+
+# print("🔥 Backend ready")
+
+# # =========================
+# # FEATURE ENGINEERING
+# # =========================
+# def add_features(df):
+#     df = df.copy()
+
+#     df["effort_index"] = (
+#         df["workload_score"] +
+#         df["overtime_hours"] +
+#         df["job_level"]
+#     )
+
+#     return df
+
+# # =========================
+# # ENCODING SAFE
+# # =========================
+# def encode_categorical(df):
+#     for col in ["role", "department"]:
+#         if col in df.columns:
+#             df[col] = df[col].apply(
+#                 lambda x: mapping_dict.get(col, {}).get(str(x), -1)
+#             )
+#     return df
+
+# # =========================
+# # API
+# # =========================
+# @app.route("/predict", methods=["POST"])
+# def predict():
+#     try:
+#         data = request.get_json()
+
+#         # 🔥 check input
+#         if not data:
+#             return jsonify({"error": "No input data"}), 400
+
+#         # =========================
+#         # 1. BUILD DATAFRAME
+#         # =========================
+#         job_level_map = {
+#             "Entry": 1,
+#             "Mid": 2,
+#             "Senior": 3,
+#             "Lead": 4,
+#             "Manager": 5
+#         }
+
+#         job_level = data.get("jobLevel", 0)
+
+#         if isinstance(job_level, str):
+#             job_level = job_level_map.get(job_level, 0)
+#         else:
+#             job_level = int(job_level)
+        
+#         df = pd.DataFrame([{
+#             "role": data.get("role"),
+#             "department": data.get("department"),
+#             "job_level": job_level,
+#             "satisfaction_score": float(data.get("satisfaction", 0)),
+#             "workload_score": float(data.get("workload", 0)),
+#             "collaboration_score": float(data.get("collaboration", 0)),
+#             "overtime_hours": float(data.get("overtime", 0)),
+#             "tenure_months": int(data.get("tenure", 0)),
+#             "salary": float(data.get("salary", 0))
+#         }])
+
+#         print("📌 INPUT DF:\n", df)
+
+#         # =========================
+#         # 2. FEATURE ENGINEERING
+#         # =========================
+#         df = add_features(df)
+
+#         # =========================
+#         # 3. ENCODING
+#         # =========================
+#         df = encode_categorical(df)
+
+#         print("📌 AFTER ENCODING:\n", df)
+
+#         # =========================
+#         # 4. CHECK MISSING COLS
+#         # =========================
+#         missing = set(keep_columns) - set(df.columns)
+#         if missing:
+#             print("❌ Missing columns:", missing)
+#             return jsonify({
+#                 "error": "Missing columns",
+#                 "missing": list(missing)
+#             }), 400
+
+#         # =========================
+#         # 5. ALIGN COLUMNS SAFELY
+#         # =========================
+#         df = df.reindex(columns=keep_columns)
+
+#         print("📌 FINAL DF:\n", df)
+
+#         # =========================
+#         # 6. PREDICT
+#         # =========================
+#         pred = model.predict(df)
+
+#         score = float(pred[0])
+#         score = max(0, min(1, score))
+
+#         return jsonify({
+#             "burnout_score": round(score, 4)
+#         })
+
+#     except Exception:
+#         print("🔥 ERROR TRACEBACK:")
+#         print(traceback.format_exc())
+
+#         return jsonify({
+#             "error": "Internal Server Error",
+#             "detail": traceback.format_exc()
+#         }), 500
+
+
+# # =========================
+# # HOME
+# # =========================
+# @app.route("/")
+# def home():
+#     return "🔥 Burnout API Running"
+
+
+# # =========================
+# # RUN
+# # =========================
+# if __name__ == "__main__":
+#     app.run(debug=True, port=5000)

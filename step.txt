@@ -1,0 +1,6 @@
+1ST step:
+npm install react-router-dom
+2nd step
+npm install react-bootstrap bootstrap
+3rd step : create crs, public .
+npm create vite@latest

@@ -1,0 +1,14 @@
+# Backend
+server/.env
+server/__pycache__/
+server/**/*.pyc
+
+# Frontend
+burnout/node_modules/
+burnout/dist/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+node_modules

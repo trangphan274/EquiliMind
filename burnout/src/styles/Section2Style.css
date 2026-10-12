@@ -1,0 +1,55 @@
+.slogan {
+  position: relative;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../assets/logo/bg2.jpg");
+
+  padding: 12rem 0;   /* dùng padding */
+  margin-top: 6rem;   /* tách sec 1 */
+  height: auto;       /* QUAN TRỌNG */
+   border-top: 4px solid #fff;   /* viền trắng trên */
+  border-bottom: 4px solid #fff; /* viền trắng dưới */
+}
+
+
+
+.slogan-content {
+  position: relative;
+  z-index: 2; /* text nằm trên */
+  text-align: center;
+  color: rgb(24, 59, 19);
+  z-index: 2;
+  font-family: var(--playfair-font);  
+
+}
+
+.highlight{
+  color: rgb(129, 97, 38);
+}
+/* veggies layout */
+/* veggies layout → floating layout */
+.floating-container {
+  position: absolute;
+  inset: 0;          /* phủ full section */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.floating {
+  position: absolute;
+  width:100px;
+}
+
+
+.bird1 { top: 15%; left: 5%;width:100px; }
+.bird2 { bottom: 30%; right: 5%;width:100px; }
+
+.leaf1 { top: 45%; left: 0%;width:80px; }
+.leaf2 {  left: 40%;width:80px; }
+
+.rock { top: 70%; right: 50% ;width:100px;}
+.rock2 { top: 15%; right: 5% ;width:100px;}
+
+
+

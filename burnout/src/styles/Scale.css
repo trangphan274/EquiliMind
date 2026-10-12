@@ -1,0 +1,75 @@
+/* ================= HERO IMAGE (GIỮ NGUYÊN) ================= */
+.pasta{
+  width: 95vmin;
+  min-width: 300px;
+  max-width: 680px;
+}
+
+/* mobile fine-tune riêng cho pasta */
+@media (max-width: 600px){
+  .pasta_overlay img{
+    width: 330px;
+  }
+}
+/* ===== DECOR SCALE – toned down ===== */
+
+/*không dùng clamp cho wrap */
+
+.leaf{
+  width: clamp(18px, 7vw, 80px);
+}
+.veggie{
+  width: clamp(6px, 10vw, 500px);
+}
+
+
+/* ===== TEXT SCALE – balanced ===== */
+.slogan-content p{
+  font-size: clamp(1.5rem, 6vw,4.5rem);
+  line-height: 1.35;
+}
+
+/* ===== BOX WIDTH ===== */
+.slogan-content {
+  max-width: clamp(480px, 80vw, 1000px);
+
+
+}
+.hero_text{
+  max-width: clamp(380px, 50vw, 600px);
+}
+
+/* ===== IMAGE CONTENT ===== */
+.history_section img{
+  width: 100%;
+  max-width: none;
+  height: auto;
+}
+.history_content{
+  max-width: clamp(420px, 45vw, 600px);
+}
+
+.history_content h1{
+  font-size: clamp(2.2rem, 4vw, 3rem);
+}
+
+.history_content p{
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+}
+
+
+/* ===== INGREDIENTS SCALE ===== */
+.ingredients_grid{
+  max-width: clamp(680px, 80vw, 900px);
+}
+
+.ingredients_item{
+  aspect-ratio: 2/3;
+}
+
+.ingredients_text{
+  max-width: clamp(320px, 60vw, 420px);
+}
+
+
+
