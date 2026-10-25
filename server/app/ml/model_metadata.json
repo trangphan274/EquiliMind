@@ -1,0 +1,25 @@
+{
+    "features": [
+        "project_completion_rate",
+        "role",
+        "job_level",
+        "department",
+        "satisfaction_score",
+        "workload_score",
+        "collaboration_score",
+        "overtime_hours",
+        "tenure_months",
+        "salary"
+    ],
+    "categorical_features": [
+        "role",
+        "department"
+    ],
+    "job_level_mapping": {
+        "Entry": 1,
+        "Mid": 2,
+        "Senior": 3,
+        "Lead": 4,
+        "Manager": 5
+    }
+}
