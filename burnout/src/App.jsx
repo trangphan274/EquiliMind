@@ -15,11 +15,10 @@ import PredictResult from './pages/Prediction/PredictResultPage.jsx';
 import About from './pages/About/About.jsx';
 import ProtectedRoute from './components/common/ProtectedRoute.jsx';
 import PublicOnlyRoute from './components/common/PublicOnlyRoute.jsx';
-import Dashboard from './pages/Personal/Dashboard.jsx';
 import Records from './pages/Records/Records.jsx';
 import AppLayout from './components/Layouts/AppLayout.jsx';
 import PersonalHome from './pages/Personal/PersonalHome.jsx';
-
+import Dashboard from './pages/Dashboard/Dashboard.jsx';
 
 function RootRedirect() {
   const user = localStorage.getItem('user');
