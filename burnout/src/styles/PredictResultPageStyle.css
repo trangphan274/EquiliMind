@@ -1,147 +1,275 @@
 
 /* =========================
-   WRAPPER (soft cream bg)
-========================= */
-.result-wrapper {
+   Prediction Result Page
+   ========================= */
+
+.predict-result-page {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 40px 24px 60px;
+  background: #f7f9fc;
+  box-sizing: border-box;
+}
 
-  padding: 30px;
-
-  background: #f6f1e6; /* cream base giống UI m gửi */
+.predict-result-card {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: 36px 40px;
+  background: #ffffff;
+  border: 1px solid #e7ebf2;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(31, 55, 90, 0.06);
+  box-sizing: border-box;
 }
 
 /* =========================
-   CARD (soft glass cream)
-========================= */
-.result-card {
-  width: 100%;
-  max-width: 900px;
+   Header
+   ========================= */
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-
-  padding: 50px;
-  border-radius: 28px;
-
-  background: #fff7e6; /* warm cream */
-  border: 1px solid #eadfc7;
-
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-
-/* =========================
-   LEFT SIDE (score)
-========================= */
-.result-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  border-right: 1px solid #eadfc7;
-  padding-right: 30px;
-}
-
-.result-label {
-  font-size: 2.6rem;
-  font-weight: 800;
+.predict-result-header {
   text-align: center;
-
-  color: #2f3e2f; /* dark green-ish like UI */
-
-  margin-bottom: 10px;
+  margin-bottom: 32px;
 }
 
-.result-prob {
-  font-size: 1.3rem;
-  color: #6b6b6b;
+.predict-result-header h1 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.predict-result-header p {
+  margin: 10px 0 0;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 /* =========================
-   RIGHT SIDE (details)
-========================= */
-.user-input-details {
+   Main Burnout Result
+   ========================= */
+
+.burnout-result {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  margin-bottom: 24px;
+  background: #f5f8ff;
+  border: 1px solid #e3eaff;
+  border-radius: 18px;
 }
 
-.user-input-details h3 {
-  color: #2f3e2f;
-  font-size: 1.2rem;
-
-  border-bottom: 1px solid #eadfc7;
-  padding-bottom: 6px;
-  margin-bottom: 10px;
+.burnout-score {
+  color: #315ecb;
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -2px;
 }
 
-.detail-item {
+.burnout-level {
   display: flex;
-  justify-content: space-between;
-
-  font-size: 0.95rem;
-  color: #4b4b4b;
-
-  padding: 6px 0;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
 }
 
-.detail-item span:first-child {
-  color: #7a7a7a;
+.burnout-level span {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.burnout-level strong {
+  padding: 5px 13px;
+  border-radius: 999px;
+  background: #e8efff;
+  color: #315ecb;
+  font-size: 14px;
   font-weight: 600;
 }
 
 /* =========================
-   BUTTON (match cream UI)
-========================= */
-.back-btn {
-  grid-column: span 2;
-  justify-self: center;
+   Description
+   ========================= */
 
-  margin-top: 25px;
-  padding: 14px 45px;
-
-  border: none;
-  border-radius: 30px;
-
-  font-weight: 700;
-  text-transform: uppercase;
-
-  color: white;
-  background: #d4a373; /* warm beige accent */
-
-  cursor: pointer;
-
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-  transition: 0.25s ease;
+.burnout-description {
+  margin-bottom: 30px;
+  padding: 16px 18px;
+  border-left: 3px solid #315ecb;
+  background: #f8faff;
+  border-radius: 0 10px 10px 0;
 }
 
-.back-btn:hover {
-  background: #c08c5a;
-  transform: translateY(-2px);
-  box-shadow: 0 15px 25px rgba(0,0,0,0.12);
+.burnout-description p {
+  margin: 0;
+  color: #596579;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 /* =========================
-   MOBILE
-========================= */
+   Assessment Summary
+   ========================= */
+
+.assessment-summary {
+  margin-top: 10px;
+}
+
+.assessment-summary h2 {
+  margin: 0 0 18px;
+  color: #1f2937;
+  font-size: 20px;
+  font-weight: 650;
+}
+
+.summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 4px;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-row span {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.summary-row strong {
+  color: #27364d;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* =========================
+   Actions
+   ========================= */
+
+.predict-result-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.predict-result-actions button,
+.predict-result-card > button {
+  min-height: 44px;
+  padding: 0 22px;
+  border: none;
+  border-radius: 10px;
+  background: #315ecb;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.predict-result-actions button:hover,
+.predict-result-card > button:hover {
+  background: #274fae;
+  box-shadow: 0 5px 14px rgba(49, 94, 203, 0.18);
+  transform: translateY(-1px);
+}
+
+.predict-result-actions button:active,
+.predict-result-card > button:active {
+  transform: translateY(0);
+}
+
+/* Secondary button */
+
+.predict-result-actions button:last-child {
+  background: #ffffff;
+  color: #315ecb;
+  border: 1px solid #315ecb;
+  box-shadow: none;
+}
+
+.predict-result-actions button:last-child:hover {
+  background: #f5f8ff;
+  box-shadow: none;
+}
+
+/* =========================
+   Empty Result State
+   ========================= */
+
+.predict-result-card h1 {
+  line-height: 1.2;
+}
+
+.predict-result-card > p {
+  margin: 12px 0 24px;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
 @media (max-width: 768px) {
-  .result-card {
-    grid-template-columns: 1fr;
-    padding: 30px;
+  .predict-result-page {
+    padding: 24px 16px 40px;
   }
 
-  .result-box {
-    border-right: none;
-    border-bottom: 1px solid #eadfc7;
-    padding-right: 0;
-    padding-bottom: 25px;
+  .predict-result-card {
+    padding: 28px 22px;
+    border-radius: 16px;
   }
 
-  .back-btn {
-    grid-column: span 1;
+  .predict-result-header h1 {
+    font-size: 26px;
+  }
+
+  .burnout-score {
+    font-size: 54px;
+  }
+
+  .predict-result-actions {
+    flex-direction: column;
+  }
+
+  .predict-result-actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .predict-result-page {
+    padding: 18px 12px 30px;
+  }
+
+  .predict-result-card {
+    padding: 24px 18px;
+  }
+
+  .predict-result-header h1 {
+    font-size: 23px;
+  }
+
+  .summary-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .summary-row strong {
+    text-align: left;
   }
 }

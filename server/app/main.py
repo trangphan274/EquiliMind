@@ -5,7 +5,8 @@ from app.database.database import client, db
 from app.routes.auth import router as auth_router
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes.reflections import router as reflection_router
-
+from app.routes.predictions import router as predictions_router
+from app.routes.dashboard import router as dashboard_router
 
 app = FastAPI()
 app.add_middleware(
@@ -21,7 +22,8 @@ app.add_middleware(
 
 app.include_router(auth_router)
 app.include_router(reflection_router)
-
+app.include_router(predictions_router)
+app.include_router(dashboard_router)
 
 @app.get("/")
 async def root():

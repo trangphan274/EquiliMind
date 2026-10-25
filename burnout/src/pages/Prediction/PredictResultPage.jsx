@@ -1,53 +1,64 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "../../styles/PredictResultPageStyle.css";
+
+import PredictionResult from "../../components/Test/PredictionResult";
 
 const PredictResultPage = () => {
-
   const location = useLocation();
   const navigate = useNavigate();
 
-  const data = location.state;
+  const result = location.state;
 
-  if (!data) {
-    return <h2>No result found</h2>;
+  if (!result) {
+    return (
+      <div className="predict-result-page">
+        <div className="predict-result-card">
+          <h1>No assessment result</h1>
+
+          <p>
+            Please complete an assessment first to see your
+            burnout risk.
+          </p>
+
+          <button
+            type="button"
+            onClick={() => navigate("/predict")}
+          >
+            Take Assessment
+          </button>
+        </div>
+      </div>
+    );
   }
 
-  const score = data.burnout_score;
+  const burnoutRisk = Number(result.burnout_score || 0);
 
-  let level = "";
-  if (score < 0.3) level = "Low Burnout Risk";
-  else if (score < 0.6) level = "Medium Burnout Risk";
-  else level = "High Burnout Risk";
+  const burnoutPercentage = Math.round(burnoutRisk * 100);
 
-return (
-    <div className="result-wrapper">
-      <div className="result-card">
-        
-        {/* Bên trái: Score */}
-        <div className="result-box">
-          <div className="result-label">{level}</div>
-          <div className="result-prob">Burnout Score: {(score * 100).toFixed(1)}%</div>
-        </div>
+  let riskLevel = "Low";
+  let riskDescription =
+    "Your current indicators suggest a relatively low burnout risk.";
 
-        {/* Bên phải: Thông tin User nhập */}
-        <div className="user-input-details">
-          <h3>User Profile</h3>
-          <div className="detail-item"><span>Role:</span> <span>{data.role}</span></div>
-          <div className="detail-item"><span>Dept:</span> <span>{data.department}</span></div>
-          <div className="detail-item"><span>Level:</span> <span>{data.jobLevel}</span></div>
-          <div className="detail-item"><span>Satisfaction:</span> <span>{data.satisfaction}</span></div>
-          <div className="detail-item"><span>Workload:</span> <span>{data.workload}</span></div>
-          <div className="detail-item"><span>Overtime:</span> <span>{data.overtime} hrs</span></div>
-          <div className="detail-item"><span>Tenure:</span> <span>{data.tenure} months</span></div>
-          <div className="detail-item"><span>Salary:</span> <span>${data.salary.toLocaleString()}</span></div>
-        </div>
+  if (burnoutPercentage >= 70) {
+    riskLevel = "High";
+    riskDescription =
+      "Your current indicators suggest a high burnout risk. Consider reviewing your workload and well-being indicators.";
+  } else if (burnoutPercentage >= 40) {
+    riskLevel = "Moderate";
+    riskDescription =
+      "Your current indicators suggest a moderate burnout risk. It may be helpful to monitor your workload and well-being.";
+  }
 
-        <button className="back-btn" onClick={() => navigate("/predict")}>
-          PREDICT AGAIN
-        </button>
-
-      </div>
+  return (
+    <div className="predict-result-page">
+      <PredictionResult
+        burnoutPercentage={burnoutPercentage}
+        riskLevel={riskLevel}
+        riskDescription={riskDescription}
+        result={result}
+        onTakeAnother={() => navigate("/predict")}
+        onViewDashboard={() => navigate("/dashboard")}
+      />
     </div>
   );
 };

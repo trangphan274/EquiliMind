@@ -449,3 +449,34 @@
     width: 100%;
   }
 }
+
+/* =========================
+   FORM VALIDATION
+   ========================= */
+
+.input-error {
+  border: 1px solid #e05252 !important;
+  box-shadow: 0 0 0 1px rgba(224, 82, 82, 0.08);
+}
+
+.select-error .select__control {
+  border: 1px solid #e05252 !important;
+  box-shadow: 0 0 0 1px #e05252 !important;
+}
+
+
+.radio-error {
+  padding: 10px;
+  border: 1px solid #e05252;
+  border-radius: 8px;
+}
+
+.slider-error {
+  padding: 8px;
+  border: 1px solid #e05252;
+  border-radius: 8px;
+}
+
+.slider-error .slider-value {
+  color: #e05252;
+}

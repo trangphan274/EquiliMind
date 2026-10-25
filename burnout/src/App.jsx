@@ -11,7 +11,6 @@ import PredictPage from './pages/Prediction/PredictPage.jsx';
 import Login from './pages/Auth/Login.jsx';
 import Register from './pages/Auth/Register.jsx';
 import LoadingScreen from './components/common/Loading.jsx';
-import PredictResult from './pages/Prediction/PredictResultPage.jsx';
 import About from './pages/About/About.jsx';
 import ProtectedRoute from './components/common/ProtectedRoute.jsx';
 import PublicOnlyRoute from './components/common/PublicOnlyRoute.jsx';
@@ -19,6 +18,7 @@ import Records from './pages/Records/Records.jsx';
 import AppLayout from './components/Layouts/AppLayout.jsx';
 import PersonalHome from './pages/Personal/PersonalHome.jsx';
 import Dashboard from './pages/Dashboard/Dashboard.jsx';
+import PredictResult from "./pages/Prediction/PredictResultPage";
 
 function RootRedirect() {
   const user = localStorage.getItem('user');
