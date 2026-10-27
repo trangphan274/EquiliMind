@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routes.reflections import router as reflection_router
 from app.routes.predictions import router as predictions_router
 from app.routes.dashboard import router as dashboard_router
-
+from app.routes.records import router as records_router
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -24,7 +24,7 @@ app.include_router(auth_router)
 app.include_router(reflection_router)
 app.include_router(predictions_router)
 app.include_router(dashboard_router)
-
+app.include_router(records_router)
 @app.get("/")
 async def root():
     return {
