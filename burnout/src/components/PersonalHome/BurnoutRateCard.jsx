@@ -1,32 +1,42 @@
-import React from 'react';
+import React from "react";
 
-function BurnoutRateCard({ rate = 42 }) {
+function BurnoutRateCard({ rate = 0 }) {
+  const getStatus = () => {
+    if (rate < 40) {
+      return "Low Risk";
+    }
+
+    if (rate < 70) {
+      return "Moderate Risk";
+    }
+
+    return "High Risk";
+  };
+
+  const status = getStatus();
+
   return (
     <div className="burnout-rate-card">
-
       <div
         className="burnout-gauge"
         style={{
-          '--rate': `${rate}%`,
+          "--rate": `${rate}%`,
         }}
       >
         <div className="burnout-gauge-inner">
-
           <span className="burnout-rate-label">
             BURNOUT RATE
           </span>
 
           <span className="burnout-rate-number">
-            {rate}%
+            {Math.round(rate)}%
           </span>
 
           <span className="burnout-gauge-status">
-            Moderate Risk
+            {status}
           </span>
-
         </div>
       </div>
-
     </div>
   );
 }
