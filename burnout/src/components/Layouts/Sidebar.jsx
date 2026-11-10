@@ -5,7 +5,9 @@ import {
   Brain,
   FileText,
   LogOut,
+  UserRound
 } from 'lucide-react';
+
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -37,6 +39,10 @@ function Sidebar() {
           <span>Records</span>
         </NavLink>
       </nav>
+      <NavLink to="/profile" className="sidebar-link">
+        <UserRound size={18} />
+        <span>My Profile</span>
+      </NavLink>
 
       <div className="sidebar-bottom">
         <button

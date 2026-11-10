@@ -19,7 +19,7 @@ import AppLayout from './components/Layouts/AppLayout.jsx';
 import PersonalHome from './pages/Personal/PersonalHome.jsx';
 import Dashboard from './pages/Dashboard/Dashboard.jsx';
 import PredictResult from "./pages/Prediction/PredictResultPage";
-
+import Profile from "./pages/Profile/Profile.jsx";
 function RootRedirect() {
   const user = localStorage.getItem('user');
 
@@ -65,6 +65,7 @@ function App() {
         <Route path="/personal-home" element={<PersonalHome />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/records" element={<Records />} />
+        <Route path="/profile" element={<Profile />} />
       </Route>
        </Route>
     </Routes>
