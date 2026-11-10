@@ -8,6 +8,7 @@ from app.routes.reflections import router as reflection_router
 from app.routes.predictions import router as predictions_router
 from app.routes.dashboard import router as dashboard_router
 from app.routes.records import router as records_router
+from app.routes import users
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -19,7 +20,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+app.include_router(users.router)
 app.include_router(auth_router)
 app.include_router(reflection_router)
 app.include_router(predictions_router)
