@@ -1,44 +1,63 @@
+
 import '../../styles/AboutStyle.css';
 
 const About = () => {
   return (
     <section className="about-page">
-
-      {/* HERO */}
       <div className="about-hero">
-        <h1>Understand Burnout Before It Happens</h1>
-      </div>
-
-      {/* STORY */}
-      <div className="about-section-block">
-        <h2>Our Purpose</h2>
+        <span className="about-eyebrow">ABOUT EQUILIMIND</span>
+        <h1>Understand Your Burnout Risk</h1>
         <p>
-          Burnout doesn’t happen overnight. It builds quietly through stress,
-          workload, and imbalance. This platform helps you detect early signals
-          and understand your mental state through simple insights.
+          Gain insights into your well-being and better understand
+          the factors that may contribute to burnout.
         </p>
       </div>
 
-      {/* WHAT WE DO */}
-      <div className="about-section-block alt">
-        <h2>What We Do</h2>
-        <p>
-          By analyzing your work patterns, satisfaction, and daily pressure,
-          we provide a prediction of your burnout risk — helping you reflect
-          and take action before it becomes serious.
-        </p>
+      <div className="about-content">
+        <div className="about-section-block">
+          <span className="about-number">01</span>
+          <div>
+            <h2>Our Purpose</h2>
+            <p>
+              Burnout can develop gradually as work demands and personal
+              well-being become unbalanced. EquiliMind aims to help individuals
+              better understand their burnout risk through data-driven insights.
+            </p>
+          </div>
+        </div>
+
+        <div className="about-section-block alt">
+          <span className="about-number">02</span>
+          <div>
+            <h2>What We Do</h2>
+            <p>
+              EquiliMind analyzes selected work-related and personal indicators
+              to estimate burnout risk. The platform presents prediction
+              results to help users recognize potential risk factors and
+              reflect on their well-being.
+            </p>
+          </div>
+        </div>
+
+        <div className="about-section-block">
+          <span className="about-number">03</span>
+          <div>
+            <h2>Our Vision</h2>
+            <p>
+              We envision making burnout awareness more accessible through
+              intelligent, data-driven tools that encourage individuals to
+              pay attention to their well-being and make more informed choices.
+            </p>
+          </div>
+        </div>
       </div>
 
-      {/* VISION */}
-      <div className="about-section-block">
-        <h2>Our Vision</h2>
+      <div className="about-note">
         <p>
-          We aim to go beyond prediction — building intelligent tools that
-          actively support your mental well-being, helping you stay balanced,
-          productive, and in control of your life.
+          EquiliMind is designed for awareness and reflection. Its predictions
+          are not a medical diagnosis or a substitute for professional advice.
         </p>
       </div>
-
     </section>
   );
 };

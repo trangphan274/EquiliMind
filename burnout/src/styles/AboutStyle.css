@@ -1,43 +1,132 @@
+
 .about-page {
-  background: #ffe180;
+  min-height: 100vh;
+  background: #f7f9ff;
+  color: #26334d;
+  padding-bottom: 80px;
 }
 
 /* HERO */
 .about-hero {
-  height: 60vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 100px 24px 90px;
   text-align: center;
-  background: #ffe180;
+  background: linear-gradient(135deg, #eef3ff 0%, #dce7ff 100%);
+}
+
+.about-eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #315ecb;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .about-hero h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #2d2d2d;
+  max-width: 750px;
+  margin: 0 auto 18px;
+  color: #20345f;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 750;
+  line-height: 1.2;
 }
 
-/* SECTION BLOCK */
+.about-hero p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: #64728d;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* CONTENT */
+.about-content {
+  max-width: 1000px;
+  margin: 65px auto 0;
+  padding: 0 24px;
+}
+
 .about-section-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 38px 40px;
+  margin-bottom: 22px;
   background: #ffffff;
-  padding: 80px 20px;
-  text-align: center;
+  border: 1px solid #e8edfa;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(43, 75, 140, 0.04);
 }
 
 .about-section-block.alt {
-  background: #fff8e1; /* nhẹ hơn tí để tạo contrast */
+  background: #eef3ff;
+  border-color: #e1eaff;
+}
+
+.about-number {
+  flex-shrink: 0;
+  color: #315ecb;
+  font-size: 25px;
+  font-weight: 750;
 }
 
 .about-section-block h2 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
+  margin: 0 0 14px;
+  color: #243b70;
+  font-size: 24px;
   font-weight: 700;
 }
 
 .about-section-block p {
-  max-width: 600px;
-  margin: 0 auto;
-  color: #555;
-  line-height: 1.6;
+  margin: 0;
+  color: #68758e;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+/* NOTE */
+.about-note {
+  max-width: 952px;
+  margin: 35px auto 0;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.about-note p {
+  color: #8792a8;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .about-hero {
+    padding: 75px 22px 65px;
+  }
+
+  .about-hero p {
+    font-size: 15px;
+  }
+
+  .about-content {
+    margin-top: 35px;
+    padding: 0 16px;
+  }
+
+  .about-section-block {
+    gap: 18px;
+    padding: 26px 22px;
+  }
+
+  .about-number {
+    font-size: 20px;
+  }
+
+  .about-section-block h2 {
+    font-size: 20px;
+  }
+
+  .about-section-block p {
+    font-size: 14px;
+  }
 }
